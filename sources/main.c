@@ -10,17 +10,19 @@ int	main(int argc, char **argv)
 		ft_dprintf(STDERR_FILENO, "usage: ./gui_demo <map_path>\n");
 		return (1);
 	}
-	ft_bzero(&mystruct, sizeof(mystruct));
-	parse_map(&mystruct, argv[1]);
-	load_images(&mystruct);
-	InitWindow(W_WIDTH, W_HEIGHT, W_TITLE);
-	SetTargetFPS(60);
-	draw_background(&mystruct);
+	initialize_mystruct(&mystruct, argv[1]);
 	while (WindowShouldClose() == false)
 	{
+		update_delta(&mystruct);
+		update_player(&mystruct);
+		update_camera(&mystruct);
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
-		draw_map(&mystruct);
+			ClearBackground(RAYWHITE);
+			draw_background(&mystruct);
+			BeginMode2D(mystruct.camera.curCamera);
+				draw_map(&mystruct);
+			EndMode2D();
+			draw_gui(&mystruct);
 		EndDrawing();
 	}
 	CloseWindow();

@@ -26,6 +26,6 @@ void	parse_map(t_mystruct *mystruct, char *mapPath)
 		if (cur_len > mystruct->map.max_width)
 			mystruct->map.max_width = cur_len;
 	}
-	grid_size = ft_maxofint(W_WIDTH, W_HEIGHT)
+	grid_size = ft_maxofint(S_WIDTH, S_HEIGHT)
 		/ ft_maxofint(mystruct->map.max_width, mystruct->map.height);
 }

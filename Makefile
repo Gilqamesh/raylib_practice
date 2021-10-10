@@ -4,7 +4,7 @@ FWs = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -fr
 EXAMPLESRC = core_2d_camera_platformer.c
 EXAMPLENAME = edemo
 EXAMPLEOBJ = $(foreach file,$(EXAMPLESRC:.c=.o),$(ODIR)/$(file))
-SRC = driver.c parse.c destroy.c draw.c images.c
+SRC = main.c parse.c destroy.c draw.c images.c utils.c initialize.c update.c
 LDIR = library
 HDIR = headers
 ODIR = objects
